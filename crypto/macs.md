@@ -145,7 +145,7 @@ Finally we compute $$T = \textrm{AES}_{K_2}(S_n)$$; $$T$$ is the tag for message
 $$M$$. Here is what it looks like:
 
 ![AES-EMAC block diagram, with K2 highlighted as the final encryption
-step](/assets/images/crypto/macs/aes-emac.svg)
+step]({{ site.baseurl }}/assets/images/crypto/macs/aes-emac.svg)
 
 Assuming AES is a secure block cipher, this scheme is provably secure, using the
 unforgeability definition and security game described in the previous section.

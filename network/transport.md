@@ -132,7 +132,7 @@ indexed using sequence numbers. Since there are two streams, there are two sets
 of sequence numbers in each TCP connection, one for each bytestream.
 
 ![Diagram of TCP communication, with sequence numbers and ACK
-numbers](/assets/images/network/transport/tcp.png)
+numbers]({{ site.baseurl }}/assets/images/network/transport/tcp.png)
 
 In every TCP packet, the sequence number field in the header is set to the index
 of the first byte sent in that packet. In packets from the client to the server,
@@ -166,7 +166,7 @@ Note that in each packet, the sequence number is an index in the sender's
 bytestream, and the ACK number is an index in the recipient's bytestream.
 
 ![Diagram of the TCP 3-way
-handshake](/assets/images/network/transport/tcp-handshake.png)
+handshake]({{ site.baseurl }}/assets/images/network/transport/tcp-handshake.png)
 
 Note that the sequence numbers do not start at 0 (for a security reason
 discussed below). Instead, to initiate a connection, the client and server

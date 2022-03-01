@@ -28,7 +28,7 @@ connection with additional security guarantees.
 ## 31.1. TLS Handshake
 
 ![Diagram of the first part of the TLS handshake, from the ClientHello to the
-server certificate presentation](/assets/images/network/tls/tls1.png)
+server certificate presentation]({{ site.baseurl }}/assets/images/network/tls/tls1.png)
 
 Because it's built on top of TCP, the TLS handshake starts with a TCP handshake.
 This lets us abstract away the notion of best-effort, fixed-size packets and
@@ -70,7 +70,7 @@ second arrow here:
 
 ![Diagram of the second part of the TLS handshake using RSA, from the server
 certificate presentation to the exchange of
-MACs](/assets/images/network/tls/tls2-rsa.png)
+MACs]({{ site.baseurl }}/assets/images/network/tls/tls2-rsa.png)
 
 Here, the client generates the random PS, encrypts it with the server's public
 key, and sends it to the server, which decrypts using its private key.
@@ -88,7 +88,7 @@ the second (red) and third (blue) arrows here:
 
 ![Diagram of the second part of the TLS handshake using Diffie-Hellman, from the
 server certificate presentation to the exchange of
-MACS](/assets/images/network/tls/tls2-dh.png)
+MACS]({{ site.baseurl }}/assets/images/network/tls/tls2-dh.png)
 
 The exchange looks just like classic Diffie-Hellman, except the server signs its
 half of the exchange with its secret key. The shared PS is the result of the key

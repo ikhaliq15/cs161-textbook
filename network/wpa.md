@@ -61,7 +61,7 @@ To give each user a unique encryption key, after both the client and the access
 point independently derive the PSK, they participate in a handshake to generate
 shared encryption keys.
 
-![Diagram of the WPA2 handshake](/assets/images/network/wpa/wpa2.png)
+![Diagram of the WPA2 handshake]({{ site.baseurl }}/assets/images/network/wpa/wpa2.png)
 
 1. The client and the access point exchange random nonces, the ANonce and the
    SNonce. The nonces ensure that different keys will be generated during each
@@ -93,7 +93,7 @@ In practice, the handshake is optimized into a 4-way handshake, requiring only 4
 messages to be exchanged between the client and the access point.
 
 ![Diagram of the optimized WPA2 handshake used in
-practice](/assets/images/network/wpa/wpa2-real.png)
+practice]({{ site.baseurl }}/assets/images/network/wpa/wpa2-real.png)
 
 1. The access point sends the ANonce, as before.
 

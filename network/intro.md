@@ -23,7 +23,7 @@ block, we can connect a group of local machines in a **local area network
 (LAN)**.
 
 ![Diagram of a LAN, where computers are directly
-interconnected](/assets/images/network/osi/lan.png)
+interconnected]({{ site.baseurl }}/assets/images/network/osi/lan.png)
 
 Note that in a LAN, all machines are connected to all other machines. This
 allows any machine on the LAN to send and receive messages from any other
@@ -33,7 +33,7 @@ infeasible to connect every machine in the world to every other machine in the
 world, so we introduce a **router** to connect multiple LANs.
 
 ![Diagram of a WAN, where two LANs are connected by a
-router](/assets/images/network/osi/wan.png)
+router]({{ site.baseurl }}/assets/images/network/osi/wan.png)
 
 A router is a machine that is connected to two or more LANs. If a machine wants
 to send a message to a machine on a different LAN, it sends the message to the
@@ -91,7 +91,7 @@ information needed to deliver the letter, and appears before the actual letter.
 
 ![A diagram of a network packet structure, with the link layer header first,
 then the IP header, then the transport layer header, then the application
-data](/assets/images/network/osi/headers.png)
+data]({{ site.baseurl }}/assets/images/network/osi/headers.png)
 
 Because multiple protocols across different layers are needed to send a message,
 we need multiple headers on each packet. Each message begins as regular

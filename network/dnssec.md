@@ -86,7 +86,7 @@ italicized._
 nameserver first in query 1 and response 2, then the nameserver at the second
 level of the tree in query 3 and response 4, then a nameserver at the third
 level of the tree in query 5 and response
-6](/assets/images/network/dns/dnsquery.png)
+6]({{ site.baseurl }}/assets/images/network/dns/dnsquery.png)
 
 1. You to the root name server: Please tell me the IP address of
    `eecs.berkeley.edu`.
@@ -190,7 +190,7 @@ only used to sign the zone signing key, and the **zone signing key (ZSK)** is
 used to sign everything else.
 
 ![Diagram depicting a ZSK used to sign
-records](/assets/images/network/dnssec/zsk.png)
+records]({{ site.baseurl }}/assets/images/network/dnssec/zsk.png)
 
 In our previous design with one key pair, the name server sends (1) a set of
 records, (2) a signature on those records, and (3) the public key (endorsed by
@@ -198,7 +198,7 @@ the parent). The DNS resolver uses the public key to verify the signature, and
 accepts the set of records.
 
 ![Diagram depicting a KSK used to sign a ZSK, which is then used to sign
-records](/assets/images/network/dnssec/ksk.png)
+records]({{ site.baseurl }}/assets/images/network/dnssec/ksk.png)
 
 In our new design with two key pairs, the name server sends (1) the public ZSK,
 (2) a signature on the public ZSK, and (3) the public KSK (endorsed by the
@@ -221,7 +221,7 @@ by the KSK in the previous step).
 KSK, which is used to sign the root's ZSK, which is used to sign .edu's KSK,
 which is used to sign .edu's ZSK, which is used to sign berkeley.edu's KSK,
 which is used to sign berkeley.edu's ZSK, which is used to sign berkeley.edu's A
-record](/assets/images/network/dnssec/dnssec.png)
+record]({{ site.baseurl }}/assets/images/network/dnssec/dnssec.png)
 
 Here is a diagram of the entire two-key DNSSEC. Each color (blue, green, orange)
 represents a name server. The lighter shade represents records signed with the

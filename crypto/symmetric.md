@@ -615,10 +615,10 @@ eavesdropper; so ECB mode **leaks information** about the plaintext.
 - ECB mode decryption: $$M_i = D_K(C_i)$$
 
 ![Diagram of encryption for the ECB mode of
-operation](/assets/images/crypto/symmetric/ECB_encryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/ECB_encryption.png)
 
 ![Diagram of decryption for the ECB mode of
-operation](/assets/images/crypto/symmetric/ECB_decryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/ECB_decryption.png)
 
 **CBC Mode** (Cipher Block Chaining): This is a popular mode for commercial
 applications. For each message the sender picks a random $$n$$-bit string,
@@ -635,10 +635,10 @@ underlying block cipher is secure).
 - CBC mode decryption: $$P_i = D_K(C_i) \oplus C_{i-1}$$
 
 ![Diagram of encryption for the CBC mode of
-operation](/assets/images/crypto/symmetric/CBC_encryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/CBC_encryption.png)
 
 ![Diagram of decryption for the CBC mode of
-operation](/assets/images/crypto/symmetric/CBC_decryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/CBC_decryption.png)
 
 **CFB Mode** (Ciphertext Feedback Mode): This is another popular mode with
 properties very similar to CBC mode. Again, $$C_0$$ is the IV. The
@@ -651,10 +651,10 @@ $$C_i = E_K(C_{i-1}) \oplus M_i$$.
 - CFB mode decryption: $$P_i = E_K(C_{i-1}) \oplus C_i$$
 
 ![Diagram of encryption for the CFB mode of
-operation](/assets/images/crypto/symmetric/CFB_encryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/CFB_encryption.png)
 
 ![Diagram of decryption for the CFB mode of
-operation](/assets/images/crypto/symmetric/CFB_decryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/CFB_decryption.png)
 
 **OFB Mode** (Output Feedback Mode): In this mode, the initial vector IV is
 repeatedly encrypted to obtain a set of values $$Z_i$$ as follows: $$Z_0 = IV$$
@@ -685,10 +685,10 @@ from tampering); it's just easier to illustrate on OFB mode.
 - OFB mode decryption: $$P_i = C_i \oplus Z_i$$
 
 ![Diagram of encryption for the OFB mode of
-operation](/assets/images/crypto/symmetric/OFB_encryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/OFB_encryption.png)
 
 ![Diagram of decryption for the OFB mode of
-operation](/assets/images/crypto/symmetric/OFB_decryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/OFB_decryption.png)
 
 **Counter (CTR) Mode**: In CTR mode, a counter is initialized to IV and
 repeatedly incremented and encrypted to obtain a sequence that can now be used
@@ -709,10 +709,10 @@ decryption is never used.
 - CTR mode decryption: $$M_i = E_K(IV + i) \oplus C_i$$
 
 ![Diagram of encryption for the CTR mode of
-operation](/assets/images/crypto/symmetric/CTR_encryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/CTR_encryption.png)
 
 ![Diagram of decryption for the CTR mode of
-operation](/assets/images/crypto/symmetric/CTR_decryption.png)
+operation]({{ site.baseurl }}/assets/images/crypto/symmetric/CTR_decryption.png)
 
 For the rest of these notes, we will focus on analyzing CBC and CTR modes. As an
 exercise, you can try performing similar analysis on the other modes as well.

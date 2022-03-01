@@ -227,7 +227,7 @@ a key ($$K_1=g^{am} \pmod{p}$$) with Alice and another key ($$K_2=g^{bm}
 \pmod{p}$$) with Bob in order to man-in-the-middle (MITM) their communications.
 
 ![Diagram of the Diffie-Hellman key exchange between Alice and Bob, with Mallory
-in the middle](/assets/images/crypto/key-exchange/diffie_mitm.png)
+in the middle]({{ site.baseurl }}/assets/images/crypto/key-exchange/diffie_mitm.png)
 
 When Alice sends $$g^a \pmod{p}$$ to Bob, Mallory intercepts the message and
 replaces it with $$g^m \pmod{p}$$, where $$m$$ is Mallory's secret. Bob now

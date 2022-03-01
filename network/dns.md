@@ -59,7 +59,7 @@ DNS arranges all the name servers in a tree hierarchy based on their zones:
 ![Diagram of an example DNS tree, with the root at the root, the top-level
 domains .edu, .org, and .com as the second level, and second-level domains such
 as berkeley.edu, cs161.org, and google.com at the third
-level](/assets/images/network/dns/dnstree.png)
+level]({{ site.baseurl }}/assets/images/network/dns/dnstree.png)
 
 The **root server** at the top level of the tree has all domains in its zone
 (this zone is usually written as `.`). Name servers at lower levels of the tree
@@ -85,7 +85,7 @@ steps. (A comic version of this query is available at <https://howdns.works/>.)
 nameserver first in query 1 and response 2, then the nameserver at the second
 level of the tree in query 3 and response 4, then a nameserver at the third
 level of the tree in query 5 and response
-6](/assets/images/network/dns/dnsquery.png)
+6]({{ site.baseurl }}/assets/images/network/dns/dnsquery.png)
 
 1. You to the root name server: Please tell me the IP address of
    `eecs.berkeley.edu`.
@@ -455,7 +455,7 @@ success to $$1/2^{32}$$, which is much harder, but certainly not impossible.
 ![Diagram of source port randomization in use. The query's source port is
 randomized, and the destination port is 53. The response's source port is 53,
 and the destination port is the same randomized
-value](/assets/images/network/dns/source-port-randomization.png)
+value]({{ site.baseurl }}/assets/images/network/dns/source-port-randomization.png)
 
 Sanity check: How much extra security does source port randomization provide
 against on-path attackers?[^3]
