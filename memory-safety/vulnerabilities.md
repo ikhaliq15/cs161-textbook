@@ -49,7 +49,7 @@ more than 8 bytes of data, then `gets()` will write past the end of `buf`,
 overwriting some other part of memory. This is a bug.
 
 ![Two words of memory for buf overwritten and two more words of memory above it
-overwritten](/assets/images/memory-safety/vulnerabilities/overflow1.png)
+overwritten]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/overflow1.png)
 
 Note that `char buf[8]` is defined outside of the function, so it is located in
 the static part of memory. Also note that each row of the diagram represents 4
@@ -82,7 +82,7 @@ Unfortunately, the `authenticated` flag is stored in memory right after `buf`.
 Note that we use "after" here to mean "at a higher memory address". 
 
 ![Two words of memory for buf overwritten and an authenticated above it
-overwritten](/assets/images/memory-safety/vulnerabilities/overflow2.png)
+overwritten]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/overflow2.png)
 
 If the attacker can write 9 bytes of data to `buf` (with the 9th byte set to a
 non-zero value), then this will set the `authenticated` flag to true, and the
@@ -112,7 +112,7 @@ Like `authenticated` in the previous example, `fnptr` is stored directly above
 `buf` in memory.
 
 ![Two words of memory for buf overwritten and a function pointer above it
-overwritten](/assets/images/memory-safety/vulnerabilities/overflow3.png)
+overwritten]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/overflow3.png)
 
 Suppose the function pointer `fnptr` is called elsewhere in the program (not
 shown). This enables a more serious attack: the attacker can overwrite `fnptr`
@@ -151,7 +151,7 @@ effective methods of malicious code injection.
 One powerful method for exploiting buffer overrun vulnerabilities takes
 advantage of the way local variables are laid out on the stack.
 
-_Stack smashing_ attacks exploit the x86 function call convention. See [Chapter 2](https://textbook.cs161.org/memory-safety/x86.html) 
+_Stack smashing_ attacks exploit the x86 function call convention. See [Chapter 2]({{ site.baseurl }}/memory-safety/x86.html) 
 for a refresher on how x86 function calls work.
 
 Suppose the code looks like this:
@@ -167,7 +167,7 @@ When `vulnerable()` is called, a stack frame is pushed onto the stack. The
 stack will look something like this:
 
 ![Two words of memory for buf overwritten and the rip and sfp above it
-overwritten](/assets/images/memory-safety/vulnerabilities/overflow4.png)
+overwritten]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/overflow4.png)
 
 If the input is too long, the code will write past the end of `buf`, overwrite
 the sfp, and overwrite the rip. This is a _stack smashing_ attack.
@@ -207,7 +207,7 @@ is entered first, and the byte `0xDE` is entered last.
 
 ![Two words of memory for buf and the sfp overwritten with 0xAAAA and the rip
 overwritten with
-0xDEADBEEF](/assets/images/memory-safety/vulnerabilities/overflow5.png)
+0xDEADBEEF]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/overflow5.png)
 
 Now, when the `vulnerable()` function returns, the program will start executing
 instructions at the address in rip. Since we overwrote the rip with the address
@@ -240,7 +240,7 @@ executing instructions at `buf`, which causes the shellcode to execute.
 
 ![buf overwritten with shellcode, the sfp overwritten with 0xAAAA, and the rip
 overwritten with the address of
-buf](/assets/images/memory-safety/vulnerabilities/overflow6.png)
+buf]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/overflow6.png)
 
 Now suppose our shellcode is 100 bytes long. If we try our input from before,
 the shellcode won't fit in the 12 bytes between the buffer and the rip. It turns
@@ -256,7 +256,7 @@ shellcode.
 
 ![Two words of buf and the sfp overwritten with 0xAAAA, the rip overwritten with
 the address of rip + 4, and the shellcode overwritten above
-it](/assets/images/memory-safety/vulnerabilities/overflow7.png)
+it]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/overflow7.png)
 
 The discussion above has barely scratched the surface of techniques for
 exploiting buffer overrun bugs. Stack smashing dates back to at least the late
@@ -309,13 +309,13 @@ void vulnerable() {
 
 The stack diagram for this function would look something like this:
 
-![Initial non vulnerable code with printf](/assets/images/memory-safety/vulnerabilities/printfnotvulnerable.png)
+![Initial non vulnerable code with printf]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/printfnotvulnerable.png)
 
 When the `printf()` function executes, it looks for a format string modifier denoted by a “%” in its first argument located 4 bytes above the RIP of `printf()`. If it finds the modifier, it then looks 8 bytes above the RIP for the "actual" argument (i.e. what the format modifier will be acting upon).  
 
 The behavior of the `printf()` function is generally controlled by the format modifier(s) that are passed into the function. The `printf()` function retrieves the parameters that are requested by the format string from the stack. Take, for example, the following line of code: `printf("x has the value %d, y has the value %d, z has the value %d \n", x, y, z);` The stack frame for this line of code would look like:
 
-![Not vulnerable printf statement](/assets/images/memory-safety/vulnerabilities/printfnotvulnerable2.png)
+![Not vulnerable printf statement]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/printfnotvulnerable2.png)
 
 Remember that arguments to a function are pushed onto the stack in reverse order, which is why the address of the format string is at a lower address compared to the values of `x`, `y`, and `z`.  
 
@@ -425,7 +425,7 @@ how overwriting a single byte lets you start executing instructions at an
 arbitrary address in memory.
 
 ![Stack diagrams showing the exploitation of an off-by-one
-vulnerability for the first return](/assets/images/memory-safety/vulnerabilities/offbyone1.png)
+vulnerability for the first return]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/offbyone1.png)
 
 **Step 1**: This is what normal execution during a function looks like.
 Consider reviewing the x86 section of the notes if you'd like a refresher. The
@@ -489,7 +489,7 @@ same 3 instructions again, but this time with ebp incorrectly pointing in the
 buffer.
 
 ![Stack diagrams showing the exploitation of an off-by-one
-vulnerability for the second return](/assets/images/memory-safety/vulnerabilities/offbyone2.png)
+vulnerability for the second return]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/offbyone2.png)
 
 **Step 6**: `mov %ebp, %esp`: esp now points where ebp is pointing, which is
 inside the buffer. At this point in normal execution, both ebp and esp think
@@ -540,7 +540,7 @@ array contains the address of one of that object's methods. The object's
 instance variables are stored directly above the vtable pointer.
 
 ![A diagram of a C++ object allocated in the heap, with its instance variables
-above its vtable](/assets/images/memory-safety/vulnerabilities/vtable.png)
+above its vtable]({{ site.baseurl }}/assets/images/memory-safety/vulnerabilities/vtable.png)
 
 If the programmer fails to check bounds correctly, the attacker can overflow one
 of the instance variables of object `x`. If there is another object above `x` in

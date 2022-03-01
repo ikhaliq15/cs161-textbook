@@ -223,7 +223,7 @@ The stack canary is placed directly above the local variables and directly below
 the saved registers (sfp and rip):
 
 ![A stack canary located between the sfp and the local variables of a given
-stack frame](/assets/images/memory-safety/mitigations/canary.png)
+stack frame]({{ site.baseurl }}/assets/images/memory-safety/mitigations/canary.png)
 
 Suppose an attacker wants to overflow a local variable to overwrite the rip on
 the stack, and the vulnerability only allows the attacker to write to
