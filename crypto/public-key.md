@@ -205,7 +205,7 @@ encryption schemes:
 computationally hard to find $$m$$. However, with the factorization of $$n$$
 (i.e. $$p$$ or $$q$$), it becomes easy to find $$m$$.
 
-- _Discrete log problem_: Suppose $$p$$ is a large prime and $$g$$ is a
+- _Diffie-Hellman problem_: Suppose $$p$$ is a large prime and $$g$$ is a
   generator.  Given $$g$$, $$p$$, $$A = g^a \pmod{p}$$, and
   $$B = g^b \pmod{p}$$, it is computationally hard to find $$g^{ab} \pmod{p}$$.
   However, with $$a$$ or $$b$$, it becomes easy to find $$g^{ab} \pmod{p}$$.
