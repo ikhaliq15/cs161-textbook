@@ -19,7 +19,7 @@
     });
 
     /* Read local storage state. */
-    if (localStorage.getItem('darkMode')) {
+    if (localStorage.getItem('darkMode') === 'true') {
       toggleDark();
     }
   });
